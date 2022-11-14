@@ -1,7 +1,7 @@
 package com.jasitharan.donor;
 
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DonorRepository extends MongoRepository<Donor, String> {
+public interface DonorRepository extends JpaRepository<Donor, String> {
 }

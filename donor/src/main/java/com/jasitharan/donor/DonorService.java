@@ -1,8 +1,6 @@
 package com.jasitharan.donor;
 
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

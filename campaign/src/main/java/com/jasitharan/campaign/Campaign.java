@@ -1,13 +1,12 @@
 package com.jasitharan.campaign;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.*;
 
-@Document(collection = "courses")
+@Table(name="campaign")
 public class Campaign {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
