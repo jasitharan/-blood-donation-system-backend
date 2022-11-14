@@ -1,12 +1,12 @@
 package com.jasitharan.campaign;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.*;
+import java.util.Date;
 
 @Table(name="campaign")
+@Entity
 public class Campaign {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,12 +3,10 @@ package com.jasitharan.donor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(name="donor")
 @Entity
+@Table(name="donor")
 public class Donor {
     @Id
-    private String id;
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "donor_id")
     private int donor_id;
@@ -62,14 +60,6 @@ public class Donor {
     }
 
     public Donor(){ }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
 
     public int getDonor_id() {

@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/campaigns")
 public class CampaignController {
 
-    @Autowired(required=true)
+    @Autowired(required = true)
     private CampaignService campaignService;
 
     @PostMapping("/addCampaign")
