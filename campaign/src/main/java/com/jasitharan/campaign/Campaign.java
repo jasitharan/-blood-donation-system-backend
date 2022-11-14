@@ -16,6 +16,9 @@ public class Campaign {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "donation_count")
+    private int donation_count;
+
     @Column(name = "location")
     private String location;
 
@@ -28,13 +31,14 @@ public class Campaign {
     @Column(name = "status")
     private char status;
 
-    public Campaign(int campaign_id, String name, String location, Date date, LocalTime time, char status) {
+    public Campaign(int campaign_id, String name, String location, Date date, LocalTime time, char status,int donation_count) {
         this.campaign_id = campaign_id;
         this.name = name;
         this.location = location;
         this.date = date;
         this.time = time;
         this.status = status;
+        this.donation_count = donation_count;
     }
     public Campaign(){ }
     public int getCampaign_id() {
@@ -51,6 +55,14 @@ public class Campaign {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getDonation_count() {
+        return donation_count;
+    }
+
+    public void setDonation_count(int donation_count) {
+        this.donation_count = donation_count;
     }
 
     public String getLocation() {
@@ -94,6 +106,7 @@ public class Campaign {
                 ", date=" + date +
                 ", time=" + time +
                 ", status=" + status +
+                ", donation_count=" + donation_count +
                 '}';
     }
 }

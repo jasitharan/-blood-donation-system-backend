@@ -33,14 +33,14 @@ public class CampaignController {
         return campaignService.getAll();
     }
 
-    @PutMapping("/updateCampaign")
-   private Campaign update(@RequestBody Campaign campaign)
+    @GetMapping("/incrementDonationCount/{id}")
+   public Campaign update(@PathVariable Integer id)
     {
-        campaignService.update(campaign);
+        Campaign campaign = campaignService.update(id).getBody();
         return  campaign;
     }
     @DeleteMapping("deleteCampaign/{id}")
-    public void deleteCampaign(@PathVariable String id){
+    public void deleteCampaign(@PathVariable Integer id){
         campaignService.delete(id);
     }
 
