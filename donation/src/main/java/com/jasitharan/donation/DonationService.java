@@ -2,6 +2,7 @@ package com.jasitharan.donation;
 
 
 import lombok.RequiredArgsConstructor;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -21,13 +22,20 @@ public class DonationService{
 
 
     public void save(Donation donation){
-        webClientBuilder.build().post()
-                .uri("/employees")
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .body("", String.class)
-                .retrieve()
-                .bodyToMono(String.class);
-        donationRepository.save(donation);
+        try {
+            String result = webClientBuilder.build().get()
+                    .uri("http://localhost:8080/campaigns/incrementDonationCount/" + donation.getCampaign_id())
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+            System.out.println(result);
+            donationRepository.save(donation);
+        } catch (ResourceNotFoundException e) {
+             throw new ResourceNotFoundException
+                     ("donation not found");
+        }
+
+
     }
 
 
